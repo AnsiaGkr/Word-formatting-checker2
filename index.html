@@ -3,86 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Word Formatting Checker | Student Dimension</title>
+  <title>Academic Document Assistant | Student Dimension</title>
+
   <style>
+    :root {
+      --red: #e3372e;
+      --dark: #222222;
+      --soft: #f7f7f7;
+      --border: #e8e8e8;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #fbfaff;
-      color: #1f1f1f;
+      background: #ffffff;
+      color: var(--dark);
     }
 
     .container {
-      max-width: 1050px;
+      max-width: 1100px;
       margin: auto;
-      padding: 24px;
+      padding: 28px;
     }
 
     .hero {
-      background: linear-gradient(135deg, #f1ebff, #ffffff);
-      border: 1px solid #e4d8ff;
-      border-radius: 28px;
-      padding: 48px 28px;
       text-align: center;
-      margin-top: 24px;
+      padding: 56px 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .logo {
-      max-width: 160px;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: 46px;
-      margin: 12px 0;
-      color: #2b2342;
-    }
-
-    .subtitle {
-      font-size: 20px;
-      color: #4c4658;
-      max-width: 760px;
-      margin: 0 auto 24px;
-      line-height: 1.5;
+      max-width: 180px;
+      margin-bottom: 28px;
     }
 
     .badge {
       display: inline-block;
-      background: #6c4ab6;
+      background: var(--red);
       color: white;
-      padding: 8px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
       font-size: 14px;
+      font-weight: bold;
       margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin: 12px 0;
+      color: var(--dark);
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 21px;
+      color: #444;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      line-height: 1.5;
     }
 
     .cta {
       display: inline-block;
-      background: #6c4ab6;
+      background: var(--dark);
       color: white;
-      padding: 16px 28px;
-      border-radius: 14px;
+      padding: 16px 30px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: bold;
-      margin-top: 16px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
-    .cta.secondary {
+    .cta.red {
+      background: var(--red);
+    }
+
+    .cta.outline {
       background: white;
-      color: #6c4ab6;
-      border: 1px solid #d8cdfc;
-      margin-left: 10px;
+      color: var(--dark);
+      border: 1px solid var(--dark);
     }
 
     .section {
-      margin: 56px 0;
+      margin: 64px 0;
     }
 
     .section h2 {
-      font-size: 32px;
+      font-size: 34px;
       text-align: center;
-      margin-bottom: 24px;
-      color: #2b2342;
+      margin-bottom: 28px;
+      color: var(--dark);
     }
 
     .features {
@@ -92,16 +105,16 @@
     }
 
     .card {
-      background: white;
-      border: 1px solid #eee;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
     }
 
     .card h3 {
       margin-top: 0;
-      color: #4b2f91;
+      color: var(--red);
+      font-size: 22px;
     }
 
     .steps {
@@ -112,50 +125,72 @@
     }
 
     .step {
-      background: white;
-      border: 1px solid #eee;
-      border-radius: 18px;
-      padding: 18px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
     }
 
-    .price-box {
-      background: white;
-      border: 1px solid #e4d8ff;
-      border-radius: 26px;
+    .form-box {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 24px;
       padding: 34px;
-      text-align: center;
-      max-width: 520px;
+      max-width: 620px;
       margin: auto;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      display: none;
+    }
+
+    .form-box.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 90px;
     }
 
     .price {
-      font-size: 42px;
+      color: var(--red);
+      font-size: 38px;
       font-weight: bold;
-      color: #6c4ab6;
-      margin: 10px 0;
+      text-align: center;
+      margin: 12px 0;
     }
 
     .footer {
       text-align: center;
-      color: #666;
-      padding: 40px 20px;
-      border-top: 1px solid #eee;
-    }
-
-    .small {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.5;
+      color: #555;
+      padding: 42px 20px;
+      border-top: 1px solid var(--border);
     }
 
     @media (max-width: 800px) {
+      .container {
+        padding: 18px;
+      }
+
       h1 {
-        font-size: 34px;
+        font-size: 36px;
       }
 
       .subtitle {
-        font-size: 17px;
+        font-size: 18px;
       }
 
       .features,
@@ -163,19 +198,17 @@
         grid-template-columns: 1fr;
       }
 
-      .cta,
-      .cta.secondary {
-        display: block;
-        margin: 12px auto 0;
-        max-width: 260px;
+      .hero {
+        padding: 38px 16px;
       }
 
-      .hero {
-        padding: 34px 20px;
+      .logo {
+        max-width: 150px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -183,20 +216,19 @@
     <section class="hero">
       <img src="logo.png" alt="Student Dimension Logo" class="logo" />
 
+      <br>
       <div class="badge">Pilot Access Available</div>
 
-      <h1>Word Formatting Checker</h1>
+      <h1>Academic Document Assistant</h1>
 
       <p class="subtitle">
-        Professional formatting verification for theses, dissertations and academic reports.
-        Upload your Word document, detect formatting inconsistencies and receive a clear PDF report.
+        A smart academic document checker for theses, dissertations and research reports.
+        Detect formatting inconsistencies, heading issues, caption problems and generate a clear PDF report.
       </p>
 
-      <a class="cta" href="mailto:studentdimension@gmail.com?subject=Request Access - Word Formatting Checker&body=Hello Student Dimension,%0D%0AI would like to request access to the Word Formatting Checker.%0D%0DMy email:%0DDocument type:%0DUniversity/Institution:%0D%0DThank you.">
-        Request Access
-      </a>
+      <button class="cta red" onclick="openForm()">Request Access</button>
 
-      <a class="cta secondary" href="https://word-formatting-checker-npuay7dxavcom.streamlit.app/" target="_blank">
+      <a class="cta outline" href="PASTE_STREAMLIT_APP_LINK_HERE" target="_blank">
         Use the Checker
       </a>
     </section>
@@ -212,12 +244,12 @@
 
         <div class="card">
           <h3>Heading Structure</h3>
-          <p>Checks heading hierarchy and helps identify manually formatted or inconsistent headings.</p>
+          <p>Checks heading hierarchy and identifies manually formatted or inconsistent headings.</p>
         </div>
 
         <div class="card">
           <h3>PDF Report</h3>
-          <p>Generates a structured report with issue type, severity, paragraph location and text preview.</p>
+          <p>Generates a structured report with severity, category, paragraph location and text preview.</p>
         </div>
 
         <div class="card">
@@ -232,7 +264,7 @@
 
         <div class="card">
           <h3>Pilot Feedback</h3>
-          <p>The tool is currently in pilot phase and continuously improves through real document testing.</p>
+          <p>The tool is currently in pilot phase and improves through real document testing.</p>
         </div>
       </div>
     </section>
@@ -250,18 +282,57 @@
     </section>
 
     <section class="section">
-      <div class="price-box">
-        <h2>Request Pilot Access</h2>
-        <div class="price">19.90€</div>
-        <p>One personal access code for document checking.</p>
+      <h2>Request Pilot Access</h2>
 
-        <a class="cta" href="mailto:studentdimension@gmail.com?subject=Request Access - Word Formatting Checker&body=Hello Student Dimension,%0D%0AI would like to request access to the Word Formatting Checker.%0D%0DMy email:%0DDocument type:%0DUniversity/Institution:%0D%0DThank you.">
-          Request Access
-        </a>
+      <div class="price">19.90€</div>
 
-        <p class="small">
-          After submitting your request, you will receive payment instructions and your access code after confirmation.
-        </p>
+      <div style="text-align:center;">
+        <button class="cta red" onclick="openForm()">Request Access</button>
+      </div>
+
+      <div id="access-form" class="form-box">
+        <form action="https://formspree.io/f/xkoljywp" method="POST">
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+
+          <label for="usage">What do you need it for? *</label>
+          <select id="usage" name="usage" required>
+            <option value="">Select an option</option>
+            <option value="Thesis">Thesis</option>
+            <option value="Dissertation">Dissertation</option>
+            <option value="Master thesis">Master thesis</option>
+            <option value="Research paper">Research paper</option>
+            <option value="Academic report">Academic report</option>
+            <option value="EU project deliverable">EU project deliverable</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="source">Where did you find us?</label>
+          <select id="source" name="source">
+            <option value="">Select an option</option>
+            <option value="Instagram">Instagram</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Google">Google</option>
+            <option value="Student Dimension website">Student Dimension website</option>
+            <option value="Friend / recommendation">Friend / recommendation</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="message">Message / notes</label>
+          <textarea id="message" name="message" placeholder="Tell us anything useful about your document."></textarea>
+
+          <input type="hidden" name="_subject" value="New Academic Document Assistant Access Request" />
+
+          <button class="cta red" type="submit">
+            Submit Request
+          </button>
+
+        </form>
       </div>
     </section>
 
@@ -272,6 +343,14 @@
     studentdimension@gmail.com<br>
     <a href="https://student-dimension.webnode.gr/" target="_blank">student-dimension.webnode.gr</a>
   </footer>
+
+  <script>
+    function openForm() {
+      const form = document.getElementById("access-form");
+      form.classList.add("active");
+      form.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 
 </body>
 </html>
