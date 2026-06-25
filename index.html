@@ -7,95 +7,197 @@
 
   <style>
     :root {
-      --red: #e3372e;
-      --dark: #222222;
-      --soft: #f7f7f7;
-      --border: #e8e8e8;
+      --sd-red: #e3362c;
+      --sd-red-dark: #b92720;
+      --sd-charcoal: #222222;
+      --sd-soft: #f7f7f7;
+      --sd-cream: #fff8f6;
+      --sd-border: #e7e1df;
+      --sd-muted: #666666;
+      --sd-white: #ffffff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: var(--dark);
+      color: var(--sd-charcoal);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(227, 54, 44, 0.08), transparent 28%),
+        radial-gradient(circle at 92% 20%, rgba(34, 34, 34, 0.05), transparent 26%),
+        radial-gradient(circle at 50% 92%, rgba(227, 54, 44, 0.05), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #fafafa 45%, #fff8f6 100%);
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
+    .page-frame {
+      max-width: 1180px;
+      margin: 28px auto;
       padding: 28px;
+      border: 1px solid rgba(227, 54, 44, 0.16);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+    }
+
+    .top-line {
+      width: 72px;
+      height: 4px;
+      background: var(--sd-red);
+      border-radius: 999px;
+      margin: 0 auto 26px;
     }
 
     .hero {
       text-align: center;
-      padding: 56px 24px;
-      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 44px;
+      background: var(--sd-white);
+      border: 1px solid var(--sd-border);
+      border-radius: 30px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: rgba(227, 54, 44, 0.07);
+      border-radius: 50%;
+      top: -120px;
+      left: -100px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: rgba(34, 34, 34, 0.04);
+      border-radius: 50%;
+      right: -80px;
+      bottom: -90px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .logo {
-      max-width: 180px;
-      margin-bottom: 28px;
+      display: block;
+      max-width: 170px;
+      margin: 0 auto 24px;
     }
 
     .badge {
       display: inline-block;
-      background: var(--red);
+      background: var(--sd-charcoal);
       color: white;
       padding: 8px 16px;
       border-radius: 999px;
       font-size: 14px;
       font-weight: bold;
       margin-bottom: 18px;
+      letter-spacing: 0.2px;
     }
 
     h1 {
-      font-size: 52px;
-      margin: 12px 0;
-      color: var(--dark);
-      letter-spacing: -1px;
+      font-size: 58px;
+      line-height: 1.02;
+      margin: 10px auto 10px;
+      color: var(--sd-charcoal);
+      letter-spacing: -1.8px;
+      max-width: 900px;
+    }
+
+    .byline {
+      font-size: 18px;
+      margin: 0 0 24px;
+      color: var(--sd-muted);
+    }
+
+    .byline strong {
+      color: var(--sd-red);
     }
 
     .subtitle {
       font-size: 21px;
-      color: #444;
-      max-width: 760px;
-      margin: 0 auto 28px;
-      line-height: 1.5;
+      color: #3d3d3d;
+      max-width: 780px;
+      margin: 0 auto 30px;
+      line-height: 1.55;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .cta {
       display: inline-block;
-      background: var(--dark);
+      background: var(--sd-charcoal);
       color: white;
       padding: 16px 30px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-decoration: none;
       font-weight: bold;
-      margin: 10px;
       border: none;
       cursor: pointer;
       font-size: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
     }
 
     .cta.red {
-      background: var(--red);
+      background: var(--sd-red);
+    }
+
+    .cta.red:hover {
+      background: var(--sd-red-dark);
     }
 
     .cta.outline {
       background: white;
-      color: var(--dark);
-      border: 1px solid var(--dark);
+      color: var(--sd-charcoal);
+      border: 1px solid var(--sd-charcoal);
     }
 
     .section {
-      margin: 64px 0;
+      margin: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      color: var(--sd-red);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
     }
 
     .section h2 {
-      font-size: 34px;
-      text-align: center;
-      margin-bottom: 28px;
-      color: var(--dark);
+      font-size: 38px;
+      margin: 0;
+      color: var(--sd-charcoal);
+      letter-spacing: -0.8px;
     }
 
     .features {
@@ -105,16 +207,43 @@
     }
 
     .card {
-      background: var(--soft);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 26px;
+      background: var(--sd-white);
+      border: 1px solid var(--sd-border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
+      transition: all 0.2s ease;
+      min-height: 190px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.07);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(227, 54, 44, 0.1);
+      color: var(--sd-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
     }
 
     .card h3 {
-      margin-top: 0;
-      color: var(--red);
+      margin: 0 0 12px;
+      color: var(--sd-charcoal);
       font-size: 22px;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.45;
+      color: #444444;
     }
 
     .steps {
@@ -125,20 +254,47 @@
     }
 
     .step {
-      background: var(--soft);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
+      background: var(--sd-white);
+      border: 1px solid var(--sd-border);
+      border-radius: 18px;
+      padding: 22px 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.035);
+    }
+
+    .step-number {
+      color: var(--sd-red);
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .access-panel {
+      background: var(--sd-white);
+      border: 1px solid var(--sd-border);
+      border-radius: 30px;
+      padding: 42px;
+      max-width: 720px;
+      margin: auto;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .price {
+      color: var(--sd-red);
+      font-size: 46px;
+      font-weight: bold;
+      margin: 14px 0 8px;
     }
 
     .form-box {
-      background: var(--soft);
-      border: 1px solid var(--border);
+      background: #fbfbfb;
+      border: 1px solid var(--sd-border);
       border-radius: 24px;
-      padding: 34px;
+      padding: 28px;
       max-width: 620px;
-      margin: auto;
+      margin: 28px auto 0;
       display: none;
+      text-align: left;
     }
 
     .form-box.active {
@@ -149,44 +305,84 @@
       display: block;
       font-weight: bold;
       margin-top: 16px;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
     input, select, textarea {
       width: 100%;
       padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 12px;
       font-size: 16px;
-      box-sizing: border-box;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid rgba(227, 54, 44, 0.22);
+      border-color: var(--sd-red);
     }
 
     textarea {
-      min-height: 90px;
+      min-height: 92px;
+      resize: vertical;
     }
 
-    .price {
-      color: var(--red);
-      font-size: 38px;
-      font-weight: bold;
+    .submit-wrap {
       text-align: center;
-      margin: 12px 0;
+      margin-top: 22px;
+    }
+
+    .note {
+      color: var(--sd-muted);
+      line-height: 1.5;
+      margin-top: 18px;
     }
 
     .footer {
       text-align: center;
       color: #555;
-      padding: 42px 20px;
-      border-top: 1px solid var(--border);
+      padding: 42px 20px 10px;
     }
 
-    @media (max-width: 800px) {
-      .container {
-        padding: 18px;
+    .footer-card {
+      background: var(--sd-white);
+      border: 1px solid var(--sd-border);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .footer a {
+      color: var(--sd-red);
+      font-weight: bold;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: reveal 0.75s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .page-frame {
+        margin: 14px;
+        padding: 16px;
+        border-radius: 24px;
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 38px;
+        letter-spacing: -0.8px;
       }
 
       .subtitle {
@@ -199,11 +395,27 @@
       }
 
       .hero {
-        padding: 38px 16px;
+        padding: 38px 18px;
       }
 
       .logo {
-        max-width: 150px;
+        max-width: 145px;
+      }
+
+      .section {
+        margin: 48px 0;
+      }
+
+      .section h2 {
+        font-size: 30px;
+      }
+
+      .access-panel {
+        padding: 28px 18px;
+      }
+
+      .form-box {
+        padding: 20px;
       }
     }
   </style>
@@ -211,145 +423,197 @@
 
 <body>
 
-  <div class="container">
+  <main class="page-frame">
 
-    <section class="hero">
-      <img src="logo.png" alt="Student Dimension Logo" class="logo" />
+    <section class="hero reveal">
+      <div class="hero-inner">
+        <div class="top-line"></div>
 
-      <br>
-      <div class="badge">Pilot Access Available</div>
+        <img src="logo.png" alt="Student Dimension Logo" class="logo" />
 
-      <h1>Academic Document Assistant</h1>
+        <div class="badge">Early Access</div>
 
-      <p class="subtitle">
-        A smart academic document checker for theses, dissertations and research reports.
-        Detect formatting inconsistencies, heading issues, caption problems and generate a clear PDF report.
-      </p>
+        <h1>Academic Document Assistant</h1>
 
-      <button class="cta red" onclick="openForm()">Request Access</button>
+        <p class="byline">by <strong>Student Dimension</strong></p>
 
-      <a class="cta outline" href="https://word-formatting-checker-npuay7dxavcom.streamlit.app/" target="_blank">
-        Use the Checker
-      </a>
+        <p class="subtitle">
+          Professional document quality assurance for students, researchers and academic writers.
+          Detect formatting inconsistencies, heading issues, caption problems and generate a clear PDF report.
+        </p>
+
+        <div class="cta-row">
+          <button class="cta red js-open-form" type="button">Try it now</button>
+
+          <a class="cta outline" href="https://word-formatting-checker-npuay7dxavcom.streamlit.app/" target="_blank">
+            Use the Checker
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>What it checks</h2>
+    <section class="section reveal delay-1">
+      <div class="section-header">
+        <div class="section-kicker">Academic quality checks</div>
+        <h2>What it checks</h2>
+      </div>
 
       <div class="features">
         <div class="card">
+          <div class="icon">A</div>
           <h3>Formatting Consistency</h3>
           <p>Detects inconsistent fonts, font sizes and body text formatting across the document.</p>
         </div>
 
         <div class="card">
+          <div class="icon">H</div>
           <h3>Heading Structure</h3>
           <p>Checks heading hierarchy and identifies manually formatted or inconsistent headings.</p>
         </div>
 
         <div class="card">
+          <div class="icon">PDF</div>
           <h3>PDF Report</h3>
           <p>Generates a structured report with severity, category, paragraph location and text preview.</p>
         </div>
 
         <div class="card">
+          <div class="icon">#</div>
           <h3>Caption Checks</h3>
           <p>Identifies possible inconsistencies in Figure and Table captions.</p>
         </div>
 
         <div class="card">
+          <div class="icon">✓</div>
           <h3>Academic Documents</h3>
           <p>Designed for theses, dissertations, research papers and academic reports.</p>
         </div>
 
         <div class="card">
-          <h3>Pilot Feedback</h3>
-          <p>The tool is currently in pilot phase and improves through real document testing.</p>
+          <div class="icon">β</div>
+          <h3>Early Feedback</h3>
+          <p>The assistant is currently in early access and improves through real document testing.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>How it works</h2>
+    <section class="section reveal delay-2">
+      <div class="section-header">
+        <div class="section-kicker">Simple process</div>
+        <h2>How it works</h2>
+      </div>
 
       <div class="steps">
-        <div class="step">1<br><b>Request access</b></div>
-        <div class="step">2<br><b>Receive instructions</b></div>
-        <div class="step">3<br><b>Get your code</b></div>
-        <div class="step">4<br><b>Upload document</b></div>
-        <div class="step">5<br><b>Download report</b></div>
+        <div class="step">
+          <div class="step-number">1</div>
+          <b>Request access</b>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <b>Receive instructions</b>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <b>Get your code</b>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <b>Upload document</b>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <b>Download report</b>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Try it now</h2>
+    <section class="section reveal delay-3">
+      <div class="access-panel">
+        <div class="section-kicker">Early access</div>
+        <h2>Try it now</h2>
 
-      <div class="price">9.90€</div>
+        <div class="price">9.99€</div>
 
-      <div style="text-align:center;">
-        <button class="cta red" onclick="openForm()">Request Access</button>
-      </div>
+        <p>One personal access code for document checking.</p>
 
-      <div id="access-form" class="form-box">
-        <form action="https://formspree.io/f/xkoljywp" method="POST">
+        <button class="cta red js-open-form" type="button">Request Access</button>
 
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" />
+        <p class="note">
+          After submitting your request, you will receive payment instructions and your access code after confirmation.
+        </p>
 
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        <div id="access-form" class="form-box">
+          <form action="https://formspree.io/f/xkoljywp" method="POST">
 
-          <label for="usage">What do you need it for? *</label>
-          <select id="usage" name="usage" required>
-            <option value="">Select an option</option>
-            <option value="Thesis">Thesis</option>
-            <option value="Dissertation">Dissertation</option>
-            <option value="Master thesis">Master thesis</option>
-            <option value="Research paper">Research paper</option>
-            <option value="Academic report">Academic report</option>
-            <option value="EU project deliverable">EU project deliverable</option>
-            <option value="Other">Other</option>
-          </select>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" />
 
-          <label for="source">Where did you find us?</label>
-          <select id="source" name="source">
-            <option value="">Select an option</option>
-            <option value="Instagram">Instagram</option>
-            <option value="TikTok">TikTok</option>
-            <option value="Facebook">Facebook</option>
-            <option value="Google">Google</option>
-            <option value="Student Dimension website">Student Dimension website</option>
-            <option value="Friend / recommendation">Friend / recommendation</option>
-            <option value="Other">Other</option>
-          </select>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
 
-          <label for="message">Message / notes</label>
-          <textarea id="message" name="message" placeholder="Tell us anything useful about your document."></textarea>
+            <label for="usage">What do you need it for? *</label>
+            <select id="usage" name="usage" required>
+              <option value="">Select an option</option>
+              <option value="Thesis">Thesis</option>
+              <option value="Dissertation">Dissertation</option>
+              <option value="Master thesis">Master thesis</option>
+              <option value="Research paper">Research paper</option>
+              <option value="Academic report">Academic report</option>
+              <option value="EU project deliverable">EU project deliverable</option>
+              <option value="Other">Other</option>
+            </select>
 
-          <input type="hidden" name="_subject" value="New Academic Document Assistant Access Request" />
+            <label for="source">Where did you find us?</label>
+            <select id="source" name="source">
+              <option value="">Select an option</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Google">Google</option>
+              <option value="Student Dimension website">Student Dimension website</option>
+              <option value="Friend / recommendation">Friend / recommendation</option>
+              <option value="Other">Other</option>
+            </select>
 
-          <button class="cta red" type="submit">
-            Submit Request
-          </button>
+            <label for="message">Message / notes</label>
+            <textarea id="message" name="message" placeholder="Tell us anything useful about your document."></textarea>
 
-        </form>
+            <input type="hidden" name="_subject" value="New Academic Document Assistant Access Request" />
+
+            <div class="submit-wrap">
+              <button class="cta red" type="submit">Submit Request</button>
+            </div>
+
+          </form>
+        </div>
       </div>
     </section>
 
-  </div>
+    <footer class="footer">
+      <div class="footer-card">
+        <b>Academic Document Assistant</b><br>
+        by Student Dimension<br><br>
+        studentdimension@gmail.com<br>
+        <a href="https://student-dimension.webnode.gr/" target="_blank">student-dimension.webnode.gr</a>
+      </div>
+    </footer>
 
-  <footer class="footer">
-    <b>Created by Student Dimension</b><br>
-    studentdimension@gmail.com<br>
-    <a href="https://student-dimension.webnode.gr/" target="_blank">student-dimension.webnode.gr</a>
-  </footer>
+  </main>
 
   <script>
-    function openForm() {
-      const form = document.getElementById("access-form");
-      form.classList.add("active");
-      form.scrollIntoView({ behavior: "smooth" });
-    }
+    const form = document.getElementById("access-form");
+    const buttons = document.querySelectorAll(".js-open-form");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        form.classList.add("active");
+        form.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
   </script>
 
 </body>
