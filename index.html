@@ -92,7 +92,7 @@
 
     .logo {
       display: block;
-      max-width: 170px;
+      max-width: 205px;
       margin: 0 auto 24px;
     }
 
@@ -100,12 +100,13 @@
       display: inline-block;
       background: var(--sd-charcoal);
       color: white;
-      padding: 8px 16px;
+      padding: 7px 15px;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       margin-bottom: 18px;
-      letter-spacing: 0.2px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
     }
 
     h1 {
@@ -128,11 +129,29 @@
     }
 
     .subtitle {
-      font-size: 21px;
+      font-size: 22px;
       color: #3d3d3d;
-      max-width: 780px;
-      margin: 0 auto 30px;
+      max-width: 820px;
+      margin: 0 auto 22px;
       line-height: 1.55;
+    }
+
+    .benefit-line {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px auto 30px;
+    }
+
+    .benefit-pill {
+      background: #fff3f1;
+      color: var(--sd-red);
+      border: 1px solid rgba(227, 54, 44, 0.18);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 14px;
+      font-weight: bold;
     }
 
     .cta-row {
@@ -200,6 +219,14 @@
       letter-spacing: -0.8px;
     }
 
+    .section-subtitle {
+      color: var(--sd-muted);
+      font-size: 18px;
+      max-width: 640px;
+      margin: 12px auto 0;
+      line-height: 1.45;
+    }
+
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -222,16 +249,25 @@
     }
 
     .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
       background: rgba(227, 54, 44, 0.1);
       color: var(--sd-red);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
       margin-bottom: 16px;
+    }
+
+    .icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .card h3 {
@@ -251,6 +287,18 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 14px;
       text-align: center;
+      position: relative;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 34px;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: rgba(227, 54, 44, 0.18);
+      z-index: 0;
     }
 
     .step {
@@ -259,13 +307,22 @@
       border-radius: 18px;
       padding: 22px 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.035);
+      position: relative;
+      z-index: 1;
     }
 
     .step-number {
-      color: var(--sd-red);
-      font-size: 28px;
+      width: 48px;
+      height: 48px;
+      background: var(--sd-red);
+      color: white;
+      border-radius: 999px;
+      font-size: 24px;
       font-weight: bold;
-      margin-bottom: 8px;
+      margin: -2px auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .access-panel {
@@ -341,19 +398,40 @@
     .footer {
       text-align: center;
       color: #555;
-      padding: 42px 20px 10px;
+      padding: 60px 20px 20px;
     }
 
     .footer-card {
       background: var(--sd-white);
       border: 1px solid var(--sd-border);
       border-radius: 24px;
-      padding: 26px;
+      padding: 34px 26px;
+    }
+
+    .footer-brand {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--sd-charcoal);
+      margin-bottom: 6px;
+    }
+
+    .footer-links {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     .footer a {
       color: var(--sd-red);
       font-weight: bold;
+    }
+
+    .copyright {
+      color: #777;
+      font-size: 14px;
+      margin-top: 18px;
     }
 
     .reveal {
@@ -394,12 +472,16 @@
         grid-template-columns: 1fr;
       }
 
+      .steps::before {
+        display: none;
+      }
+
       .hero {
         padding: 38px 18px;
       }
 
       .logo {
-        max-width: 145px;
+        max-width: 165px;
       }
 
       .section {
@@ -416,6 +498,11 @@
 
       .form-box {
         padding: 20px;
+      }
+
+      .cta {
+        width: 100%;
+        max-width: 280px;
       }
     }
   </style>
@@ -438,12 +525,19 @@
         <p class="byline">by <strong>Student Dimension</strong></p>
 
         <p class="subtitle">
-          Professional document quality assurance for students, researchers and academic writers.
-          Detect formatting inconsistencies, heading issues, caption problems and generate a clear PDF report.
+          Save hours of formatting before submission. Detect formatting issues before your supervisor does.
         </p>
 
+        <div class="benefit-line">
+          <span class="benefit-pill">✓ Formatting</span>
+          <span class="benefit-pill">✓ Headings</span>
+          <span class="benefit-pill">✓ Fonts</span>
+          <span class="benefit-pill">✓ Captions</span>
+          <span class="benefit-pill">✓ PDF Report</span>
+        </div>
+
         <div class="cta-row">
-          <button class="cta red js-open-form" type="button">Try it now</button>
+          <button class="cta red js-open-form" type="button">Get Early Access</button>
 
           <a class="cta outline" href="https://word-formatting-checker-npuay7dxavcom.streamlit.app/" target="_blank">
             Use the Checker
@@ -456,41 +550,54 @@
       <div class="section-header">
         <div class="section-kicker">Academic quality checks</div>
         <h2>What it checks</h2>
+        <p class="section-subtitle">Everything your academic document needs before submission.</p>
       </div>
 
       <div class="features">
         <div class="card">
-          <div class="icon">A</div>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20l5-16 5 16"/><path d="M9 14h6"/></svg>
+          </div>
           <h3>Formatting Consistency</h3>
           <p>Detects inconsistent fonts, font sizes and body text formatting across the document.</p>
         </div>
 
         <div class="card">
-          <div class="icon">H</div>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h7"/></svg>
+          </div>
           <h3>Heading Structure</h3>
           <p>Checks heading hierarchy and identifies manually formatted or inconsistent headings.</p>
         </div>
 
         <div class="card">
-          <div class="icon">PDF</div>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+          </div>
           <h3>PDF Report</h3>
           <p>Generates a structured report with severity, category, paragraph location and text preview.</p>
         </div>
 
         <div class="card">
-          <div class="icon">#</div>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v10H4z"/><path d="M4 19h16"/><path d="M8 15v4"/><path d="M16 15v4"/></svg>
+          </div>
           <h3>Caption Checks</h3>
           <p>Identifies possible inconsistencies in Figure and Table captions.</p>
         </div>
 
         <div class="card">
-          <div class="icon">✓</div>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
           <h3>Academic Documents</h3>
           <p>Designed for theses, dissertations, research papers and academic reports.</p>
         </div>
 
         <div class="card">
-          <div class="icon">β</div>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+          </div>
           <h3>Early Feedback</h3>
           <p>The assistant is currently in early access and improves through real document testing.</p>
         </div>
@@ -534,7 +641,7 @@
     <section class="section reveal delay-3">
       <div class="access-panel">
         <div class="section-kicker">Early access</div>
-        <h2>Try it now</h2>
+        <h2>Get Early Access</h2>
 
         <div class="price">9.99€</div>
 
@@ -583,6 +690,7 @@
             <textarea id="message" name="message" placeholder="Tell us anything useful about your document."></textarea>
 
             <input type="hidden" name="_subject" value="New Academic Document Assistant Access Request" />
+            <input type="hidden" name="_next" value="https://word-formatting-checker-npuay7dxavcom.streamlit.app/" />
 
             <div class="submit-wrap">
               <button class="cta red" type="submit">Submit Request</button>
@@ -595,10 +703,17 @@
 
     <footer class="footer">
       <div class="footer-card">
-        <b>Academic Document Assistant</b><br>
-        by Student Dimension<br><br>
-        studentdimension@gmail.com<br>
-        <a href="https://student-dimension.webnode.gr/" target="_blank">student-dimension.webnode.gr</a>
+        <div class="footer-brand">Academic Document Assistant</div>
+        by Student Dimension
+
+        <div class="footer-links">
+          <span>studentdimension@gmail.com</span>
+          <a href="https://student-dimension.webnode.gr/" target="_blank">Website</a>
+          <a href="mailto:studentdimension@gmail.com?subject=Privacy Policy Request">Privacy</a>
+          <a href="mailto:studentdimension@gmail.com?subject=Terms Request">Terms</a>
+        </div>
+
+        <div class="copyright">©2026 Student Dimension. All rights reserved.</div>
       </div>
     </footer>
 
