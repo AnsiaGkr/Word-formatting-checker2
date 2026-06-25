@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Formatting Checker | Student Dimension</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fbfaff;
+      color: #1f1f1f;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #f1ebff, #ffffff);
+      border: 1px solid #e4d8ff;
+      border-radius: 28px;
+      padding: 48px 28px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .logo {
+      max-width: 160px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: 46px;
+      margin: 12px 0;
+      color: #2b2342;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #4c4658;
+      max-width: 760px;
+      margin: 0 auto 24px;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #6c4ab6;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #6c4ab6;
+      color: white;
+      padding: 16px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    .cta.secondary {
+      background: white;
+      color: #6c4ab6;
+      border: 1px solid #d8cdfc;
+      margin-left: 10px;
+    }
+
+    .section {
+      margin: 56px 0;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #2b2342;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #4b2f91;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      text-align: center;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .price-box {
+      background: white;
+      border: 1px solid #e4d8ff;
+      border-radius: 26px;
+      padding: 34px;
+      text-align: center;
+      max-width: 520px;
+      margin: auto;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: bold;
+      color: #6c4ab6;
+      margin: 10px 0;
+    }
+
+    .footer {
+      text-align: center;
+      color: #666;
+      padding: 40px 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .features,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .cta,
+      .cta.secondary {
+        display: block;
+        margin: 12px auto 0;
+        max-width: 260px;
+      }
+
+      .hero {
+        padding: 34px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <section class="hero">
+      <img src="logo.png" alt="Student Dimension Logo" class="logo" />
+
+      <div class="badge">Pilot Access Available</div>
+
+      <h1>Word Formatting Checker</h1>
+
+      <p class="subtitle">
+        Professional formatting verification for theses, dissertations and academic reports.
+        Upload your Word document, detect formatting inconsistencies and receive a clear PDF report.
+      </p>
+
+      <a class="cta" href="mailto:studentdimension@gmail.com?subject=Request Access - Word Formatting Checker&body=Hello Student Dimension,%0D%0AI would like to request access to the Word Formatting Checker.%0D%0DMy email:%0DDocument type:%0DUniversity/Institution:%0D%0DThank you.">
+        Request Access
+      </a>
+
+      <a class="cta secondary" href="https://word-formatting-checker-npuay7dxavcom.streamlit.app/" target="_blank">
+        Use the Checker
+      </a>
+    </section>
+
+    <section class="section">
+      <h2>What it checks</h2>
+
+      <div class="features">
+        <div class="card">
+          <h3>Formatting Consistency</h3>
+          <p>Detects inconsistent fonts, font sizes and body text formatting across the document.</p>
+        </div>
+
+        <div class="card">
+          <h3>Heading Structure</h3>
+          <p>Checks heading hierarchy and helps identify manually formatted or inconsistent headings.</p>
+        </div>
+
+        <div class="card">
+          <h3>PDF Report</h3>
+          <p>Generates a structured report with issue type, severity, paragraph location and text preview.</p>
+        </div>
+
+        <div class="card">
+          <h3>Caption Checks</h3>
+          <p>Identifies possible inconsistencies in Figure and Table captions.</p>
+        </div>
+
+        <div class="card">
+          <h3>Academic Documents</h3>
+          <p>Designed for theses, dissertations, research papers and academic reports.</p>
+        </div>
+
+        <div class="card">
+          <h3>Pilot Feedback</h3>
+          <p>The tool is currently in pilot phase and continuously improves through real document testing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How it works</h2>
+
+      <div class="steps">
+        <div class="step">1<br><b>Request access</b></div>
+        <div class="step">2<br><b>Receive instructions</b></div>
+        <div class="step">3<br><b>Get your code</b></div>
+        <div class="step">4<br><b>Upload document</b></div>
+        <div class="step">5<br><b>Download report</b></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="price-box">
+        <h2>Request Pilot Access</h2>
+        <div class="price">19.90€</div>
+        <p>One personal access code for document checking.</p>
+
+        <a class="cta" href="mailto:studentdimension@gmail.com?subject=Request Access - Word Formatting Checker&body=Hello Student Dimension,%0D%0AI would like to request access to the Word Formatting Checker.%0D%0DMy email:%0DDocument type:%0DUniversity/Institution:%0D%0DThank you.">
+          Request Access
+        </a>
+
+        <p class="small">
+          After submitting your request, you will receive payment instructions and your access code after confirmation.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <b>Created by Student Dimension</b><br>
+    studentdimension@gmail.com<br>
+    <a href="https://student-dimension.webnode.gr/" target="_blank">student-dimension.webnode.gr</a>
+  </footer>
+
+</body>
+</html>
